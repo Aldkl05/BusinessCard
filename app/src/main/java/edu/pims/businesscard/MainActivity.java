@@ -23,10 +23,22 @@ import androidx.core.view.WindowInsetsCompat;
 public class MainActivity extends AppCompatActivity {
 
 
+    int CODE_EDIT_NAME=1;
+    int CODE_EDIT_WORK=2;
+    int CODE_EDIT_ADDRESS=3;
+    int CODE_EDIT_EMAIL=4;
+    int CODE_EDIT_PHONE=5;
+    int CODE_EDIT_INSTA=6;
+    int CODE_EDIT_FB=7;
+    int CODE_EDIT_LINKEDIN=8;
+
+
+
+
 
 
     TextView nameTextView, workTextView, addressTextView, emailTextView, phoneTextView,  instaTextView,
-    fbTextView, linkedinTextView;
+            fbTextView, linkedinTextView;
 
 
     TextView editName, editWork, editAddress, editEmail, editPhone, editInsta, editFb, editLinkedin;
@@ -65,6 +77,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                Intent intent = new Intent(MainActivity.this, EditActivity.class);
+
+
+                intent.putExtra("value", nameTextView.getText().toString());
+
+                intent.putExtra("code", 1);
+
+
+                startActivityForResult(intent, 1);
+
 
             }
         });
@@ -72,6 +94,15 @@ public class MainActivity extends AppCompatActivity {
         editWork.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, EditActivity.class);
+
+
+                intent.putExtra("value", workTextView.getText().toString());
+
+                intent.putExtra("code", 2);
+
+
+                startActivityForResult(intent, 2);
 
             }
         });
@@ -79,6 +110,15 @@ public class MainActivity extends AppCompatActivity {
         editAddress.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, EditActivity.class);
+
+
+                intent.putExtra("value", addressTextView.getText().toString());
+
+                intent.putExtra("code", 3);
+
+
+                startActivityForResult(intent, 3);
 
             }
         });
@@ -86,7 +126,15 @@ public class MainActivity extends AppCompatActivity {
 
         editEmail.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) {Intent intent = new Intent(MainActivity.this, EditActivity.class);
+
+
+                intent.putExtra("value", emailTextView.getText().toString());
+
+                intent.putExtra("code", 4);
+
+
+                startActivityForResult(intent, 4);
 
             }
         });
@@ -96,6 +144,15 @@ public class MainActivity extends AppCompatActivity {
         editPhone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, EditActivity.class);
+
+
+                intent.putExtra("value", phoneTextView.getText().toString());
+
+                intent.putExtra("code", 5);
+
+
+                startActivityForResult(intent, 5);
 
             }
         });
@@ -106,6 +163,15 @@ public class MainActivity extends AppCompatActivity {
         editInsta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, EditActivity.class);
+
+
+                intent.putExtra("value", instaTextView.getText().toString());
+
+                intent.putExtra("code", 6);
+
+
+                startActivityForResult(intent, 6);
 
             }
         });
@@ -114,7 +180,15 @@ public class MainActivity extends AppCompatActivity {
         editFb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, EditActivity.class);
 
+
+                intent.putExtra("value", fbTextView.getText().toString());
+
+                intent.putExtra("code", 7);
+
+
+                startActivityForResult(intent, 7);
             }
         });
 
@@ -122,7 +196,15 @@ public class MainActivity extends AppCompatActivity {
         editLinkedin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, EditActivity.class);
 
+
+                intent.putExtra("value", linkedinTextView.getText().toString());
+
+                intent.putExtra("code", 8);
+
+
+                startActivityForResult(intent, 8);
             }
         });
 
@@ -134,4 +216,56 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == CODE_EDIT_NAME){
+            String getValue = data.getStringExtra("edit");
+
+
+            nameTextView.setText(getValue);
+        }
+        if(requestCode == CODE_EDIT_WORK){
+            String getValue = data.getStringExtra("edit");
+
+            workTextView.setText(getValue);
+        }
+        if(requestCode == CODE_EDIT_ADDRESS){
+            String getValue = data.getStringExtra("edit");
+
+            addressTextView.setText(getValue);
+        }
+        if(requestCode == CODE_EDIT_EMAIL){
+            String getValue = data.getStringExtra("edit");
+
+            emailTextView.setText(getValue);
+        }
+        if(requestCode == CODE_EDIT_PHONE){
+            String getValue = data.getStringExtra("edit");
+
+            phoneTextView.setText(getValue);
+        }
+        if(requestCode == CODE_EDIT_ADDRESS){
+            String getValue = data.getStringExtra("edit");
+
+            addressTextView.setText(getValue);
+        }
+        if(requestCode == CODE_EDIT_INSTA){
+            String getValue = data.getStringExtra("edit");
+
+            instaTextView.setText(getValue);
+        }
+        if(requestCode == CODE_EDIT_FB){
+            String getValue = data.getStringExtra("edit");
+
+            fbTextView.setText(getValue);
+        }
+        if(requestCode == CODE_EDIT_LINKEDIN){
+            String getValue = data.getStringExtra("edit");
+
+            linkedinTextView.setText(getValue);
+        }
+
+    }
 }
